@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { Breadcrumb } from 'antd';
 import navigationConfig from "configs/NavigationConfig";
 import IntlMessage from 'components/util-components/IntlMessage';
 
-let breadcrumbData = { 
+let breadcrumbData = {
 	'/app' : <IntlMessage id="home" />
 };
 
@@ -23,7 +23,7 @@ navigationConfig.forEach((elm, i) => {
 	}
 })
 
-const BreadcrumbRoute = withRouter(props => {
+const BreadcrumbRoute = props => {
 	const { location } = props;
 	const pathSnippets = location.pathname.split('/').filter(i => i);
 	const buildBreadcrumb = pathSnippets.map((_, index) => {
@@ -34,13 +34,13 @@ const BreadcrumbRoute = withRouter(props => {
       </Breadcrumb.Item>
     );
 	});
-  
+
   return (
 		<Breadcrumb>
 			{buildBreadcrumb}
 		</Breadcrumb>
   );
-});
+};
 
 export class AppBreadcrumb extends Component {
 	render() {

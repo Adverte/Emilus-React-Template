@@ -1,5 +1,6 @@
 import React from "react";
-import { PageHeader, Tabs, Button, Statistic, Descriptions } from "antd";
+import { Tabs, Button, Statistic, Descriptions } from "antd";
+import { PageHeader } from '@ant-design/pro-layout';
 
 const { TabPane } = Tabs;
 

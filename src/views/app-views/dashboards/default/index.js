@@ -4,27 +4,26 @@ import StatisticWidget from 'components/shared-components/StatisticWidget';
 import ChartWidget from 'components/shared-components/ChartWidget';
 import AvatarStatus from 'components/shared-components/AvatarStatus';
 import GoalWidget from 'components/shared-components/GoalWidget';
-import { 
-  VisitorChartData, 
-  AnnualStatisticData, 
-  ActiveMembersData, 
-  NewMembersData, 
-  RecentTransactionData 
+import {
+  VisitorChartData,
+  AnnualStatisticData,
+  ActiveMembersData,
+  NewMembersData,
+  RecentTransactionData
 } from './DefaultDashboardData';
 import ApexChart from "react-apexcharts";
 import { apexLineChartDefaultOption, COLOR_2 } from 'constants/ChartConstant';
-import { 
-  UserAddOutlined, 
-  FileExcelOutlined, 
-  PrinterOutlined, 
-  PlusOutlined, 
-  EllipsisOutlined, 
-  StopOutlined, 
-  ReloadOutlined 
+import {
+  UserAddOutlined,
+  FileExcelOutlined,
+  PrinterOutlined,
+  PlusOutlined,
+  EllipsisOutlined,
+  StopOutlined,
+  ReloadOutlined
 } from '@ant-design/icons';
 import utils from 'utils';
 import exampleService from 'services/ExampleService'
-import {withRouter} from 'react-router-dom';
 const MembersChart = props => (
   <ApexChart {...props}/>
 )
@@ -149,15 +148,15 @@ export const DefaultDashboard = () => {
   const [recentTransactionData] = useState(RecentTransactionData)
 
   return (
-    <>  
+    <>
       <Row gutter={16}>
         <Col xs={24} sm={24} md={24} lg={18}>
           <Row gutter={16}>
             {
               annualStatisticData.map((elm, i) => (
                 <Col xs={24} sm={24} md={24} lg={24} xl={8} key={i}>
-                  <StatisticWidget 
-                    title={elm.title} 
+                  <StatisticWidget
+                    title={elm.title}
                     value={elm.value}
                     status={elm.status}
                     subtitle={elm.subtitle}
@@ -168,25 +167,25 @@ export const DefaultDashboard = () => {
           </Row>
           <Row gutter={16}>
             <Col span={24}>
-              <ChartWidget 
-                title="Unique Visitors" 
-                series={visitorChartData.series} 
-                xAxis={visitorChartData.categories} 
+              <ChartWidget
+                title="Unique Visitors"
+                series={visitorChartData.series}
+                xAxis={visitorChartData.categories}
                 height={400}
               />
             </Col>
           </Row>
         </Col>
         <Col xs={24} sm={24} md={24} lg={6}>
-          <GoalWidget 
-            title="Monthly Target" 
+          <GoalWidget
+            title="Monthly Target"
             value={87}
             subtitle="You need abit more effort to hit monthly target"
             extra={<Button type="primary" onClick={() => pushRoute()}>Learn More</Button>}
           />
-          <StatisticWidget 
+          <StatisticWidget
             title={
-              <MembersChart 
+              <MembersChart
                 options={memberChartOption}
                 series={activeMembersData}
                 height={145}
@@ -217,11 +216,11 @@ export const DefaultDashboard = () => {
         </Col>
         <Col xs={24} sm={24} md={24} lg={17}>
           <Card title="Latest Transactions" extra={cardDropdown(latestTransactionOption)}>
-            <Table 
-              className="no-border-last" 
-              columns={tableColumns} 
-              dataSource={recentTransactionData} 
-              rowKey='id' 
+            <Table
+              className="no-border-last"
+              columns={tableColumns}
+              dataSource={recentTransactionData}
+              rowKey='id'
               pagination={false}
             />
           </Card>
@@ -230,6 +229,3 @@ export const DefaultDashboard = () => {
     </>
   )
 }
-
-
-export default withRouter(DefaultDashboard);

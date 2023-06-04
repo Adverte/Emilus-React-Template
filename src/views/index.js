@@ -1,5 +1,6 @@
 import React from "react";
-import { Route, Switch, Redirect, withRouter } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
+import { withRouter } from "utils/with-router";
 import { connect } from "react-redux";
 import AppLayout from "layouts/app-layout";
 import AuthLayout from 'layouts/auth-layout';
@@ -16,7 +17,7 @@ function RouteInterceptor({ children, isAuthenticated, ...rest }) {
         isAuthenticated ? (
           children
         ) : (
-          <Redirect
+          <Navigate
             to={{
               pathname: AUTH_PREFIX_PATH,
               state: { from: location }
@@ -36,9 +37,9 @@ export const Views = (props) => {
       locale={currentAppLocale.locale}
       messages={currentAppLocale.messages}>
       <ConfigProvider locale={currentAppLocale.antd}>
-        <Switch>
+        <Routes>
           <Route exact path="/">
-            <Redirect to={APP_PREFIX_PATH} />
+            <Navigate to={APP_PREFIX_PATH} />
           </Route>
           <Route path={AUTH_PREFIX_PATH}>
             <AuthLayout />
@@ -46,7 +47,7 @@ export const Views = (props) => {
           <RouteInterceptor path={APP_PREFIX_PATH} isAuthenticated={token}>
             <AppLayout location={location}/>
           </RouteInterceptor>
-        </Switch>
+        </Routes>
       </ConfigProvider>
     </IntlProvider>
   )

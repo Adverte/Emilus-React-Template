@@ -1,21 +1,21 @@
 import React, { lazy, Suspense } from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Loading from 'components/shared-components/Loading';
 import { APP_PREFIX_PATH } from 'configs/AppConfig'
 
 export const AppViews = () => {
   return (
     <Suspense fallback={<Loading cover="content"/>}>
-      <Switch>
-        <Route path={`${APP_PREFIX_PATH}/dashboards`} component={lazy(() => import(`./dashboards`))} />
-        <Route path={`${APP_PREFIX_PATH}/apps`} component={lazy(() => import(`./apps`))} />
-        <Route path={`${APP_PREFIX_PATH}/components`} component={lazy(() => import(`./components`))} />
-        <Route path={`${APP_PREFIX_PATH}/pages`} component={lazy(() => import(`./pages`))} />
-        <Route path={`${APP_PREFIX_PATH}/maps`} component={lazy(() => import(`./maps`))} />
-        <Route path={`${APP_PREFIX_PATH}/charts`} component={lazy(() => import(`./charts`))} />
-        <Route path={`${APP_PREFIX_PATH}/docs`} component={lazy(() => import(`./docs`))} />
-        <Redirect from={`${APP_PREFIX_PATH}`} to={`${APP_PREFIX_PATH}/dashboards`} />
-      </Switch>
+      <Routes>
+        <Route path={`${APP_PREFIX_PATH}/dashboards`} element={lazy(() => import(`./dashboards`))} />
+        <Route path={`${APP_PREFIX_PATH}/apps`} element={lazy(() => import(`./apps`))} />
+        <Route path={`${APP_PREFIX_PATH}/components`} element={lazy(() => import(`./components`))} />
+        <Route path={`${APP_PREFIX_PATH}/pages`} element={lazy(() => import(`./pages`))} />
+        <Route path={`${APP_PREFIX_PATH}/maps`} element={lazy(() => import(`./maps`))} />
+        <Route path={`${APP_PREFIX_PATH}/charts`} element={lazy(() => import(`./charts`))} />
+        <Route path={`${APP_PREFIX_PATH}/docs`} element={lazy(() => import(`./docs`))} />
+        <Navigate from={`${APP_PREFIX_PATH}`} to={`${APP_PREFIX_PATH}/dashboards`} />
+      </Routes>
     </Suspense>
   )
 }

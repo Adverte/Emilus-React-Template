@@ -1,5 +1,6 @@
 import React from "react";
-import { PageHeader, Button, Descriptions } from "antd";
+import { Button, Descriptions } from "antd";
+import { PageHeader } from '@ant-design/pro-layout';
 
 class Ghost extends React.Component {
   render() {

@@ -2,141 +2,141 @@ import React, { lazy, Suspense } from 'react';
 import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
 import InnerAppLayout from 'layouts/inner-app-layout';
-import { Switch, Route, Redirect } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Loading from 'components/shared-components/Loading';
 
 const menuList = [
-	{ 
-		name:'Introduction', 
+	{
+		name:'Introduction',
 		key: 'introduction',
 		sub: []
 	},
-	{ 
-		name: 'Product Content', 
+	{
+		name: 'Product Content',
 		key: 'product-content',
 		sub: []
 	},
-	{ 
-		name: 'Folder Structure', 
+	{
+		name: 'Folder Structure',
 		key: 'folder-structure',
 		sub: []
 	},
-	{ 
-		name: 'Layout Overview', 
+	{
+		name: 'Layout Overview',
 		key: 'layout-overview',
 		sub: []
 	},
-	{ 
-		name: 'Installation', 
+	{
+		name: 'Installation',
 		key: 'installation',
 		sub: []
 	},
-	{ 
-		name: 'TemplateSetting', 
+	{
+		name: 'TemplateSetting',
 		key: 'template-setting',
 		sub: []
 	},
-	{ 
-		name: 'Routing', 
+	{
+		name: 'Routing',
 		key: 'routing',
-		sub: [] 
+		sub: []
 	},
-	{ 
-		name: 'Authentication', 
+	{
+		name: 'Authentication',
 		key: 'authentication',
 		sub: [
 			{
-				name: 'JWT', 
+				name: 'JWT',
 				key: 'jwt',
-				sub: [] 
+				sub: []
 			},
 			{
-				name: 'Firebase', 
+				name: 'Firebase',
 				key: 'firebase',
-				sub: [] 
+				sub: []
 			}
-		] 
+		]
 	},
-	{ 
-		name: 'Localization', 
+	{
+		name: 'Localization',
 		key: 'localization',
-		sub: [] 
+		sub: []
 	},
-	{ 
-		name: 'Components', 
+	{
+		name: 'Components',
 		key: 'components',
 		sub: [
 			{
-				name: 'AvatarStatusDemo', 
+				name: 'AvatarStatusDemo',
 				key: 'avatar-status-demo',
-				sub: [] 
+				sub: []
 			},
 			{
-				name: 'ChartWidgetDemo', 
+				name: 'ChartWidgetDemo',
 				key: 'chart-widget-demo',
-				sub: [] 
+				sub: []
 			},
 			{
-				name: 'CustomStatisticDemo', 
+				name: 'CustomStatisticDemo',
 				key: 'custom-statistic-demo',
-				sub: [] 
+				sub: []
 			},
 			{
-				name: 'DataDisplayWidgetDemo', 
+				name: 'DataDisplayWidgetDemo',
 				key: 'data-display-demo',
-				sub: [] 
+				sub: []
 			},
 			{
-				name: 'DonutChartWidgetDemo', 
+				name: 'DonutChartWidgetDemo',
 				key: 'donut-chart-Widget-demo',
-				sub: [] 
+				sub: []
 			},
 			{
-				name: 'EllipsisDropdownDemo', 
+				name: 'EllipsisDropdownDemo',
 				key: 'ellipsis-dropdown-demo',
-				sub: [] 
+				sub: []
 			},
 			{
-				name: 'FlexDemo', 
+				name: 'FlexDemo',
 				key: 'flex-demo',
-				sub: [] 
+				sub: []
 			},
 			{
-				name: 'GoalWidgetDemo', 
+				name: 'GoalWidgetDemo',
 				key: 'goal-widget-demo',
-				sub: [] 
+				sub: []
 			},
 			{
-				name: 'LoadingDemo', 
+				name: 'LoadingDemo',
 				key: 'loading-demo',
-				sub: [] 
+				sub: []
 			},
 			{
-				name: 'RegiondataWidgetDemo', 
+				name: 'RegiondataWidgetDemo',
 				key: 'regiondata-widget-demo',
-				sub: [] 
+				sub: []
 			},
 			{
-				name: 'StatisticWidgetDemo', 
+				name: 'StatisticWidgetDemo',
 				key: 'statistic-widget-demo',
-				sub: [] 
+				sub: []
 			},
 			{
-				name: 'CustomIconDemo', 
+				name: 'CustomIconDemo',
 				key: 'custom-icon-demo',
-				sub: [] 
+				sub: []
 			}
-		] 
+		]
 	},
-	{ 
-		name: 'UtilityClasses', 
+	{
+		name: 'UtilityClasses',
 		key: 'utility-classes',
-		sub: [] 
+		sub: []
 	},
-	{ 
-		name: 'Changelog', 
+	{
+		name: 'Changelog',
 		key: 'changelog',
-		sub: [] 
+		sub: []
 	}
 ]
 
@@ -180,31 +180,31 @@ const DocsMenu = (props) => {
 const Docs = props => {
 	const { match } = props
 	return (
-		<InnerAppLayout 
+		<InnerAppLayout
 			sideContent={<DocsMenu {...props}/>}
 			mainContent={
 				<div className="p-4">
 					<div className="container-fluid">
 						<Suspense fallback={<Loading />}>
-							<Switch>
+							<Routes>
 								{menuList.map(elm => (
 									elm.sub.length === 0 ?
-									<Route 
+									<Route
 										key={elm.key}
-										path={`${match.url}/${prefix}${elm.key}`} 
-										component={lazy(() => import(`./components/${elm.name.replace(/\s/g, '')}`))}
+										path={`${match.url}/${prefix}${elm.key}`}
+										element={lazy(() => import(`./components/${elm.name.replace(/\s/g, '')}`))}
 									/>
 									:
 									elm.sub.map(item => (
-										<Route 
+										<Route
 											key={item.key}
-											path={`${match.url}/${prefix}${item.key}`} 
-											component={lazy(() => import(`./components/${item.name.replace(/\s/g, '')}`))}
+											path={`${match.url}/${prefix}${item.key}`}
+											element={lazy(() => import(`./components/${item.name.replace(/\s/g, '')}`))}
 										/>
 									))
 								))}
-								<Redirect from={`${match.url}`} to={`${match.url}/${prefix}introduction`} />
-							</Switch>
+								<Navigate from={`${match.url}`} to={`${match.url}/${prefix}introduction`} />
+							</Routes>
 						</Suspense>
 					</div>
 				</div>

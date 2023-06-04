@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { UserOutlined, LockOutlined, CreditCardOutlined, BellOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
-import { Link, Redirect, Route, Switch } from 'react-router-dom';
+import { Link, Navigate, Route, Routes } from 'react-router-dom';
 import InnerAppLayout from 'layouts/inner-app-layout';
 import EditProfile from './EditProfile';
 import ChangePassword from './ChangePassword';
@@ -41,20 +41,20 @@ const SettingOption = ({ match, location }) => {
 
 const SettingContent = ({ match }) => {
 	return (
-		<Switch>
-			<Redirect exact from={`${match.url}`} to={`${match.url}/edit-profile`} />
-			<Route path={`${match.url}/edit-profile`} component={EditProfile} />
-			<Route path={`${match.url}/change-password`} component={ChangePassword} />
-			<Route path={`${match.url}/billing`} component={Billing} />
-			<Route path={`${match.url}/notification`} component={Notification} />
-		</Switch>
+		<Routes>
+			<Navigate exact from={`${match.url}`} to={`${match.url}/edit-profile`} />
+			<Route path={`${match.url}/edit-profile`} element={<EditProfile/>} />
+			<Route path={`${match.url}/change-password`} element={<ChangePassword/>} />
+			<Route path={`${match.url}/billing`} element={<Billing/>} />
+			<Route path={`${match.url}/notification`} element={<Notification/>} />
+		</Routes>
 	)
 }
 
 export class Setting extends Component {
 	render() {
 		return (
-			<InnerAppLayout 
+			<InnerAppLayout
 				sideContentWidth={320}
 				sideContent={<SettingOption {...this.props}/>}
 				mainContent={<SettingContent {...this.props}/>}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Comment, Avatar, Form, Button, List, Input } from 'antd';
+import { Avatar, Form, Button, List, Input } from 'antd';
+import { Comment } from '@ant-design/compatible';
 import moment from 'moment';
 
 const { TextArea } = Input;

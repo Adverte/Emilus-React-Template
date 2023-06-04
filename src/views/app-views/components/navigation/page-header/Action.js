@@ -1,5 +1,6 @@
 import React from "react";
-import { PageHeader, Tag, Button, Statistic, Descriptions, Row } from "antd";
+import { Tag, Button, Statistic, Descriptions, Row } from "antd";
+import { PageHeader } from '@ant-design/pro-layout';
 
 class Action extends React.Component {
   render() {

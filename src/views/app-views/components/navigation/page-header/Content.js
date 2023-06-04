@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
-import { PageHeader, Menu, Dropdown, Button, Tag, Typography, Row } from 'antd';
+import {  Menu, Dropdown, Button, Tag, Typography, Row } from 'antd';
+import { PageHeader } from '@ant-design/pro-layout';
 import { EllipsisOutlined } from '@ant-design/icons';
 
 const { Paragraph } = Typography;

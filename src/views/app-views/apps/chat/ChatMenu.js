@@ -4,11 +4,11 @@ import { Badge, Input } from 'antd';
 import AvatarStatus from 'components/shared-components/AvatarStatus';
 import { COLOR_1 } from 'constants/ChartConstant';
 import { SearchOutlined } from '@ant-design/icons';
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ChatMenu = ({ match, location }) => {
 	const [list, setList] = useState(ChatData);
-	let history = useHistory();
+	let history = useNavigate();
 	const openChat = id => {
 		const data = list.map( elm => {
 			if(elm.id === id) {
@@ -33,8 +33,8 @@ const ChatMenu = ({ match, location }) => {
 	return (
 		<div className="chat-menu">
 			<div className="chat-menu-toolbar">
-				<Input 
-					placeholder="Search" 
+				<Input
+					placeholder="Search"
 					onChange={searchOnChange}
 					prefix={
 						<SearchOutlined className="font-size-lg mr-2"/>
@@ -44,9 +44,9 @@ const ChatMenu = ({ match, location }) => {
 			<div className="chat-menu-list">
 				{
 					list.map( (item, i) => (
-						<div 
-							key={`chat-item-${item.id}`} 
-							onClick={() => openChat(item.id)} 
+						<div
+							key={`chat-item-${item.id}`}
+							onClick={() => openChat(item.id)}
 							className={`chat-menu-list-item ${i === (list.length - 1)? 'last' : ''} ${item.id === id? 'selected' : ''}`}
 						>
 							<AvatarStatus src={item.avatar} name={item.name} subTitle={item.msg[item.msg.length - 1].text}/>

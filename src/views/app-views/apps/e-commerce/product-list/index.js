@@ -5,8 +5,8 @@ import { EyeOutlined, DeleteOutlined, SearchOutlined, PlusCircleOutlined } from 
 import AvatarStatus from 'components/shared-components/AvatarStatus';
 import EllipsisDropdown from 'components/shared-components/EllipsisDropdown';
 import Flex from 'components/shared-components/Flex'
-import NumberFormat from 'react-number-format';
-import { useHistory } from "react-router-dom";
+import {NumericFormat} from 'react-number-format';
+import { useNavigate } from "react-router-dom";
 import utils from 'utils'
 
 const { Option } = Select
@@ -27,7 +27,7 @@ const getStockStatus = stockCount => {
 const categories = ['Cloths', 'Bags', 'Shoes', 'Watches', 'Devices']
 
 const ProductList = () => {
-	let history = useHistory();
+	let history = useNavigate();
 	const [list, setList] = useState(ProductListData)
 	const [selectedRows, setSelectedRows] = useState([])
 	const [selectedRowKeys, setSelectedRowKeys] = useState([])
@@ -48,15 +48,15 @@ const ProductList = () => {
 			</Menu.Item>
 		</Menu>
 	);
-	
+
 	const addProduct = () => {
 		history.push(`/app/apps/ecommerce/add-product`)
 	}
-	
+
 	const viewDetails = row => {
 		history.push(`/app/apps/ecommerce/edit-product/${row.id}`)
 	}
-	
+
 	const deleteRow = row => {
 		const objKey = 'id'
 		let data = list
@@ -97,11 +97,11 @@ const ProductList = () => {
 			dataIndex: 'price',
 			render: price => (
 				<div>
-					<NumberFormat
-						displayType={'text'} 
-						value={(Math.round(price * 100) / 100).toFixed(2)} 
-						prefix={'$'} 
-						thousandSeparator={true} 
+					<NumericFormat
+						displayType={'text'}
+						value={(Math.round(price * 100) / 100).toFixed(2)}
+						prefix={'$'}
+						thousandSeparator={true}
 					/>
 				</div>
 			),
@@ -130,7 +130,7 @@ const ProductList = () => {
 			)
 		}
 	];
-	
+
 	const rowSelection = {
 		onChange: (key, rows) => {
 			setSelectedRows(rows)
@@ -164,11 +164,11 @@ const ProductList = () => {
 						<Input placeholder="Search" prefix={<SearchOutlined />} onChange={e => onSearch(e)}/>
 					</div>
 					<div className="mb-3">
-						<Select 
-							defaultValue="All" 
-							className="w-100" 
-							style={{ minWidth: 180 }} 
-							onChange={handleShowCategory} 
+						<Select
+							defaultValue="All"
+							className="w-100"
+							style={{ minWidth: 180 }}
+							onChange={handleShowCategory}
 							placeholder="Category"
 						>
 							<Option value="All">All</Option>
@@ -185,10 +185,10 @@ const ProductList = () => {
 				</div>
 			</Flex>
 			<div className="table-responsive">
-				<Table 
-					columns={tableColumns} 
-					dataSource={list} 
-					rowKey='id' 
+				<Table
+					columns={tableColumns}
+					dataSource={list}
+					rowKey='id'
 					rowSelection={{
 						selectedRowKeys: selectedRowKeys,
 						type: 'checkbox',

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Tabs } from "antd";
-import { DndProvider, DragSource, DropTarget } from "react-dnd";
-import HTML5Backend from "react-dnd-html5-backend";
+import { DndProvider, useDrag, useDrop } from "react-dnd";
+import {HTML5Backend} from "react-dnd-html5-backend";
 
 const { TabPane } = Tabs;
 
@@ -37,10 +37,10 @@ const cardSource = {
   }
 };
 
-const WrapTabNode = DropTarget("DND_NODE", cardTarget, connect => ({
+const WrapTabNode = useDrop("DND_NODE", cardTarget, connect => ({
   connectDropTarget: connect.dropTarget()
 }))(
-  DragSource("DND_NODE", cardSource, (connect, monitor) => ({
+    useDrag("DND_NODE", cardSource, (connect, monitor) => ({
     connectDragSource: connect.dragSource(),
     isDragging: monitor.isDragging()
   }))(TabNode)

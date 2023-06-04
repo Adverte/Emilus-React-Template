@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { PrinterOutlined } from '@ant-design/icons';
 import { Card, Table, Button } from 'antd';
 import { invoiceData } from './invoiceData';
-import NumberFormat from 'react-number-format';
+import {NumericFormat} from 'react-number-format';
 
 const { Column } = Table;
 
@@ -50,27 +50,27 @@ export class Invoice extends Component {
 							<Column title="No." dataIndex="key" key="key"/>
 							<Column title="Product" dataIndex="product" key="product"/>
 							<Column title="Quantity" dataIndex="quantity" key="quantity"/>
-							<Column title="Price" 
+							<Column title="Price"
 								render={(text) => (
-									<NumberFormat 
-										displayType={'text'} 
-										value={(Math.round(text.price * 100) / 100).toFixed(2)} 
-										prefix={'$'} 
+									<NumericFormat
+										displayType={'text'}
+										value={(Math.round(text.price * 100) / 100).toFixed(2)}
+										prefix={'$'}
 										thousandSeparator={true}
 									/>
-								)} 
+								)}
 								key="price"
 							/>
-							<Column 
-								title="Total" 
+							<Column
+								title="Total"
 								render={(text) => (
-									<NumberFormat 
-										displayType={'text'} 
-										value={(Math.round((text.price * text.quantity) * 100) / 100).toFixed(2)} 
-										prefix={'$'} 
+									<NumericFormat
+										displayType={'text'}
+										value={(Math.round((text.price * text.quantity) * 100) / 100).toFixed(2)}
+										prefix={'$'}
 										thousandSeparator={true}
 									/>
-								)} 
+								)}
 								key="total"
 							/>
 						</Table>
@@ -79,10 +79,10 @@ export class Invoice extends Component {
 								<div className="border-bottom">
 									<p className="mb-2">
 										<span>Sub - Total amount: </span>
-										<NumberFormat 
-											displayType={'text'} 
-											value={(Math.round((this.total()) * 100) / 100).toFixed(2)} 
-											prefix={'$'} 
+										<NumericFormat
+											displayType={'text'}
+											value={(Math.round((this.total()) * 100) / 100).toFixed(2)}
+											prefix={'$'}
 											thousandSeparator={true}
 										/>
 									</p>
@@ -90,10 +90,10 @@ export class Invoice extends Component {
 								</div>
 								<h2 className="font-weight-semibold mt-3">
 									<span className="mr-1">Grand Total: </span>
-									<NumberFormat 
-										displayType={'text'} 
-										value={((Math.round((this.total()) * 100) / 100) - (this.total()/ 100) * 10).toFixed(2)} 
-										prefix={'$'} 
+									<NumericFormat
+										displayType={'text'}
+										value={((Math.round((this.total()) * 100) / 100) - (this.total()/ 100) * 10).toFixed(2)}
+										prefix={'$'}
 										thousandSeparator={true}
 									/>
 								</h2>
@@ -102,8 +102,8 @@ export class Invoice extends Component {
 						<p className="mt-5">
 							<small>
 								In exceptional circumstances, Financial Services can provide an urgent manually processed special cheque.
-								Note, however, that urgent special cheques should be requested only on an emergency basis as manually 
-								produced cheques involve duplication of effort and considerable staff resources. Requests need to be 
+								Note, however, that urgent special cheques should be requested only on an emergency basis as manually
+								produced cheques involve duplication of effort and considerable staff resources. Requests need to be
 								supported by a letter explaining the circumstances to justify the special cheque payment
 							</small>
 						</p>

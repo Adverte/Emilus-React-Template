@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Table } from "antd";
-import { DndProvider, DragSource, DropTarget } from "react-dnd";
-import HTML5Backend from "react-dnd-html5-backend";
+import { DndProvider, useDrag, useDrop } from "react-dnd";
+import {HTML5Backend} from "react-dnd-html5-backend";
 import update from "immutability-helper";
 
 let dragingIndex = -1;
@@ -65,11 +65,11 @@ const rowTarget = {
   }
 };
 
-const DragableBodyRow = DropTarget("row", rowTarget, (connect, monitor) => ({
+const DragableBodyRow = useDrop("row", rowTarget, (connect, monitor) => ({
   connectDropTarget: connect.dropTarget(),
   isOver: monitor.isOver()
 }))(
-  DragSource("row", rowSource, connect => ({
+    useDrag("row", rowSource, connect => ({
     connectDragSource: connect.dragSource()
   }))(BodyRow)
 );

@@ -4,7 +4,7 @@ import RegiondataWidget from 'components/shared-components/RegiondataWidget';
 import DonutChartWidget from 'components/shared-components/DonutChartWidget'
 import Flex from 'components/shared-components/Flex'
 import ChartWidget from 'components/shared-components/ChartWidget';
-import NumberFormat from 'react-number-format';
+import {NumericFormat} from 'react-number-format';
 import ApexChart from "react-apexcharts";
 import { apexSparklineChartDefultOption, COLORS } from 'constants/ChartConstant';
 import utils from 'utils'
@@ -17,10 +17,10 @@ import {
   ArrowUpOutlined,
   ArrowDownOutlined
 } from '@ant-design/icons';
-import { 
-  regionData, 
-  sessionData, 
-  sessionLabels, 
+import {
+  regionData,
+  sessionData,
+  sessionLabels,
   conbinedSessionData,
   sessionColor,
   pagesViewData,
@@ -76,16 +76,16 @@ export const AnalyticDashboard = () => {
     <>
       <Row gutter={16}>
         <Col xs={24} sm={24} md={24} lg={24} xxl={18}>
-          <RegiondataWidget 
+          <RegiondataWidget
             title="Entrance by region"
             data={regionData}
             content={rederRegionTopEntrance}
           />
         </Col>
         <Col xs={24} sm={24} md={24} lg={24} xxl={6}>
-          <DonutChartWidget 
-            series={sessionData} 
-            labels={sessionLabels} 
+          <DonutChartWidget
+            series={sessionData}
+            labels={sessionLabels}
             title="Sessions Device"
             customOptions={{colors: sessionColor}}
             extra={
@@ -124,7 +124,7 @@ export const AnalyticDashboard = () => {
                     <div>
                       <Tag color="blue">
                         <span className="font-weight-bold">
-                          <NumberFormat value={item.amount} thousandSeparator={true} displayType="text" ></NumberFormat>
+                          <NumericFormat value={item.amount} thousandSeparator={true} displayType="text" ></NumericFormat>
                         </span>
                       </Tag>
                     </div>
@@ -150,10 +150,10 @@ export const AnalyticDashboard = () => {
                     </div>
                   </div>
                   <div className="d-flex align-items-center">
-                    <ApexChart 
-                      options={{...apexSparklineChartDefultOption, ...{colors: [utils.getSignNum(item.percentage, COLORS[1], COLORS[2])]}}} 
-                      series={item.data} 
-                      height={25} 
+                    <ApexChart
+                      options={{...apexSparklineChartDefultOption, ...{colors: [utils.getSignNum(item.percentage, COLORS[1], COLORS[2])]}}}
+                      series={item.data}
+                      height={25}
                       width={50}
                     />
                     <span className="ml-3 font-weight-bold">{item.percentage}%</span>
@@ -168,9 +168,9 @@ export const AnalyticDashboard = () => {
           </Card>
         </Col>
         <Col xs={24} sm={24} md={24} lg={24} xxl={12}>
-          <ChartWidget 
-            series={uniqueVisitorsData.series} 
-            xAxis={uniqueVisitorsData.categories} 
+          <ChartWidget
+            series={uniqueVisitorsData.series}
+            xAxis={uniqueVisitorsData.categories}
             title="Unique Visitors"
             height={410}
             type="bar"

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import AlertComponent from './alert';
 import DrawerComponent from './drawer';
 import MessageComponent from './message';
@@ -13,19 +13,19 @@ import SpinComponent from './spin';
 
 const FeedBackComponents = ({ match }) => (
   <div>
-    <Switch>
-      <Redirect exact from={`${match.url}`} to={`${match.url}/alert`} />
-      <Route path={`${match.url}/alert`} component={AlertComponent} />
-			<Route path={`${match.url}/drawer`} component={DrawerComponent} />
-			<Route path={`${match.url}/message`} component={MessageComponent} />
-			<Route path={`${match.url}/modal`} component={ModalComponent} />
-			<Route path={`${match.url}/notification`} component={NotificationComponent} />
-			<Route path={`${match.url}/popconfirm`} component={PopconfirmComponent} />
-			<Route path={`${match.url}/progress`} component={ProgressComponent} />
-			<Route path={`${match.url}/result`} component={ResultComponent} />
-			<Route path={`${match.url}/skeleton`} component={SkeletonComponent} />
-			<Route path={`${match.url}/spin`} component={SpinComponent} />
-    </Switch>
+    <Routes>
+      <Navigate exact from={`${match.url}`} to={`${match.url}/alert`} />
+      <Route path={`${match.url}/alert`} element={<AlertComponent/>} />
+			<Route path={`${match.url}/drawer`} element={<DrawerComponent/>} />
+			<Route path={`${match.url}/message`} element={<MessageComponent/>} />
+			<Route path={`${match.url}/modal`} element={<ModalComponent/>} />
+			<Route path={`${match.url}/notification`} element={<NotificationComponent/>} />
+			<Route path={`${match.url}/popconfirm`} element={<PopconfirmComponent/>} />
+			<Route path={`${match.url}/progress`} element={<ProgressComponent/>} />
+			<Route path={`${match.url}/result`} element={<ResultComponent/>} />
+			<Route path={`${match.url}/skeleton`} element={<SkeletonComponent/>} />
+			<Route path={`${match.url}/spin`} element={<SpinComponent/>} />
+    </Routes>
   </div>
 );
 

@@ -5,7 +5,7 @@ import {
   Geography
 } from "react-simple-maps";
 
-import ReactTooltip from 'react-tooltip'
+import {Tooltip} from 'react-tooltip'
 
 const geoUrl = "https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json";
 
@@ -62,7 +62,7 @@ function Map() {
   return (
     <div>
       <MapChart setTooltipContent={setContent} />
-      <ReactTooltip>{content}</ReactTooltip>
+      <Tooltip>{content}</Tooltip>
     </div>
   );
 }

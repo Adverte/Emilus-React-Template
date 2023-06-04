@@ -2,9 +2,8 @@ import React from "react";
 import {
   HashRouter as Router,
   Route,
-  Switch,
-  Link,
-  withRouter
+  Routes,
+  Link
 } from "react-router-dom";
 import { Breadcrumb, Alert } from "antd";
 
@@ -28,7 +27,7 @@ const breadcrumbNameMap = {
   "/apps/1/detail": "Detail",
   "/apps/2/detail": "Detail"
 };
-const Home = withRouter(props => {
+const Home = props => {
   const { location } = props;
   const pathSnippets = location.pathname.split("/").filter(i => i);
   const extraBreadcrumbItems = pathSnippets.map((_, index) => {
@@ -50,10 +49,10 @@ const Home = withRouter(props => {
         <Link to="/">Home</Link>
         <Link to="/apps">Application List</Link>
       </div>
-      <Switch>
-        <Route path="/apps" component={Apps} />
+      <Routes>
+        <Route path="/apps" element={<Apps/>} />
         <Route render={() => <span>Home Page</span>} />
-      </Switch>
+      </Routes>
       <Alert
         style={{ margin: "16px 0" }}
         message="Click the navigation above to switch:"
@@ -61,7 +60,7 @@ const Home = withRouter(props => {
       <Breadcrumb>{breadcrumbItems}</Breadcrumb>
     </div>
   );
-});
+};
 
 class Router4 extends React.Component {
   render() {

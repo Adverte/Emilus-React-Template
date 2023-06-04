@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch, } from 'react-router-dom';
+import { Route, Routes, } from 'react-router-dom';
 import Conversation from './Conversation';
 
 const ConversationEmpty = () => (
@@ -13,10 +13,10 @@ const ConversationEmpty = () => (
 
 const ChatContent = ({match}) => {
   return (
-    <Switch>
-      <Route path={`${match.url}/:id`} component={Conversation} />
-      <Route path={`${match.url}`} component={ConversationEmpty} />
-    </Switch>
+    <Routes>
+      <Route path={`${match.url}/:id`} element={<Conversation/>} />
+      <Route path={`${match.url}`} element={<ConversationEmpty/>} />
+    </Routes>
   )
 }
 

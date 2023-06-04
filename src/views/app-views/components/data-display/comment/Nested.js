@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
-import { Comment, Avatar } from "antd";
+import { Avatar } from "antd";
+import { Comment } from "@ant-design/compatible";
 
 const ExampleComment = ({ children }) => (
   <Comment

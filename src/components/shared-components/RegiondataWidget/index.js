@@ -6,7 +6,7 @@ import {
   Geographies,
   Geography
 } from "react-simple-maps";
-import ReactTooltip from 'react-tooltip'
+import { Tooltip as ReactTooltip } from 'react-tooltip'
 import WorldMap from 'assets/maps/world-countries-sans-antarctica.json'
 import utils from 'utils'
 
@@ -60,7 +60,7 @@ const MapChart = ({ setTooltipContent, data, mapSource, mapType }) => {
 			<Geographies geography={mapSource}>
 				{({ geographies }) =>
 					geographies.map(geo => {
-						const geoName = mapType === 'world' ? geo.properties.name : geo.properties.NAME_1 
+						const geoName = mapType === 'world' ? geo.properties.name : geo.properties.NAME_1
 						return (
 							<Geography
 								key={geo.rsmKey}

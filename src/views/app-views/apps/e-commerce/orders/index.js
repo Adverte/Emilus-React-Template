@@ -6,8 +6,8 @@ import { EyeOutlined, FileExcelOutlined, SearchOutlined, PlusCircleOutlined } fr
 import AvatarStatus from 'components/shared-components/AvatarStatus';
 import EllipsisDropdown from 'components/shared-components/EllipsisDropdown';
 import Flex from 'components/shared-components/Flex'
-import NumberFormat from 'react-number-format';
-import moment from 'moment'; 
+import {NumericFormat} from 'react-number-format';
+import moment from 'moment';
 import { DATE_FORMAT_DD_MM_YYYY } from 'constants/DateConstant'
 import utils from 'utils'
 
@@ -115,11 +115,11 @@ const Orders = () => {
 			dataIndex: 'amount',
 			render: (_, record) => (
 				<span className="font-weight-semibold">
-					<NumberFormat
-						displayType={'text'} 
-						value={(Math.round(record.amount * 100) / 100).toFixed(2)} 
-						prefix={'$'} 
-						thousandSeparator={true} 
+					<NumericFormat
+						displayType={'text'}
+						value={(Math.round(record.amount * 100) / 100).toFixed(2)}
+						prefix={'$'}
+						thousandSeparator={true}
 					/>
 				</span>
 			),
@@ -135,7 +135,7 @@ const Orders = () => {
 			)
 		}
 	];
-	
+
 	const rowSelection = {
 		onChange: (key, rows) => {
 			setSelectedRows(rows)
@@ -159,11 +159,11 @@ const Orders = () => {
 						<Input placeholder="Search" prefix={<SearchOutlined />} onChange={e => onSearch(e)}/>
 					</div>
 					<div className="mb-3">
-						<Select 
-							defaultValue="All" 
-							className="w-100" 
-							style={{ minWidth: 180 }} 
-							onChange={handleShowStatus} 
+						<Select
+							defaultValue="All"
+							className="w-100"
+							style={{ minWidth: 180 }}
+							onChange={handleShowStatus}
 							placeholder="Status"
 						>
 							<Option value="All">All payment </Option>
@@ -176,10 +176,10 @@ const Orders = () => {
 				</div>
 			</Flex>
 			<div className="table-responsive">
-				<Table 
-					columns={tableColumns} 
-					dataSource={list} 
-					rowKey='id' 
+				<Table
+					columns={tableColumns}
+					dataSource={list}
+					rowKey='id'
 					rowSelection={{
 						selectedRowKeys: selectedRowKeys,
 						type: 'checkbox',

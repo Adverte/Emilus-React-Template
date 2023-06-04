@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Comment, Tooltip, List } from "antd";
+import { Tooltip, List } from "antd";
+import { Comment } from "@ant-design/compatible";
 import moment from "moment";
 
 const data = [

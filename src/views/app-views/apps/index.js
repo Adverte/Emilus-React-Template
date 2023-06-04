@@ -1,17 +1,17 @@
 import React, { lazy, Suspense } from "react";
-import { Redirect, Route, Switch } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Loading from 'components/shared-components/Loading';
 
 const Apps = ({ match }) => (
   <Suspense fallback={<Loading cover="content"/>}>
-    <Switch>
-      <Route path={`${match.url}/mail`} component={lazy(() => import(`./mail`))} />
-      <Route path={`${match.url}/chat`} component={lazy(() => import(`./chat`))} />
-      <Route path={`${match.url}/calendar`} component={lazy(() => import(`./calendar`))} />
-      <Route path={`${match.url}/project`} component={lazy(() => import(`./project`))} />
-      <Route path={`${match.url}/ecommerce`} component={lazy(() => import(`./e-commerce`))} />
-      <Redirect from={`${match.url}`} to={`${match.url}/mail`} />
-    </Switch>
+    <Routes>
+      <Route path={`${match.url}/mail`} element={lazy(() => import(`./mail`))} />
+      <Route path={`${match.url}/chat`} element={lazy(() => import(`./chat`))} />
+      <Route path={`${match.url}/calendar`} element={lazy(() => import(`./calendar`))} />
+      <Route path={`${match.url}/project`} element={lazy(() => import(`./project`))} />
+      <Route path={`${match.url}/ecommerce`} element={lazy(() => import(`./e-commerce`))} />
+      <Navigate from={`${match.url}`} to={`${match.url}/mail`} />
+    </Routes>
   </Suspense>
 );
 
