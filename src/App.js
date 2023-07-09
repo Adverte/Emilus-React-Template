@@ -3,7 +3,6 @@ import {Provider} from 'react-redux';
 import store from './redux/store';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Views from './views';
-import {Col, Menu, Row, Tabs} from "antd";
 import MainPage from "./MainPage";
 
 function App() {
