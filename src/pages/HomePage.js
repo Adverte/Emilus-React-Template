@@ -5,7 +5,7 @@ import {
     PieChartOutlined, FileOutlined, TeamOutlined,
 } from '@ant-design/icons';
 
-function MainPage() {
+function HomePage() {
 
     const {
         Header, Content,
@@ -136,4 +136,4 @@ function MainPage() {
 );
 }
 
-export default MainPage;
+export default HomePage;
