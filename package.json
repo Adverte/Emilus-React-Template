@@ -13,6 +13,7 @@
     "@ant-design/icons": "^5.1.4",
     "@ant-design/pro-layout": "^7.14.3",
     "@babel/runtime": "^7.22.3",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@vx/pattern": "0.0.199",
     "ajv": "^8.12.0",
     "ant-design": "^1.0.0",

@@ -2,22 +2,28 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import store from './redux/store';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Views from './views';
-import MainPage from "./MainPage";
+import HomePage from "./pages/HomePage";
+import MainLayout from "./pages/MainLayout";
+import UserTable from "./pages/UserTable";
 
 function App() {
+
     const content =
         <div className="App">
+            <h1>AWD</h1>
             <Provider store={store}>
                 <Router>
                     <Routes>
-                        <Route path='/' component={MainPage} />
-                        <Route path='/v' component={Views} />
+                        <Route path='/' element={<MainLayout/>}>
+                            <Route index element={<UserTable/>}/>
+                            <Route path='*' element={<HomePage/>}/>
+                        </Route>
                     </Routes>
                 </Router>
             </Provider>
         </div>
 
+    return content;
 }
 
 export default App;
