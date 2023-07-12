@@ -10,7 +10,6 @@ function App() {
 
     const content =
         <div className="App">
-            <h1>AWD</h1>
             <Provider store={store}>
                 <Router>
                     <Routes>
