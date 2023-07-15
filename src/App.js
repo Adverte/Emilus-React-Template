@@ -10,11 +10,11 @@ import NotFoundPage from "./pages/NotFoundPage";
 function App() {
 
     const content =
-        <div className="App">
+    <div className="App">
             <Provider store={store}>
                 <Router>
                     <Routes>
-                        <Route path='/' element={<MainLayout/>}>
+                        <Route path='/*' element={<MainLayout/>}>
                             <Route index element={<HomePage/>}/>
                             <Route path='table' element={<UserTable/>}/>
                             <Route path='*' element={<NotFoundPage/>}/>

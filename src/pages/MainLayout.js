@@ -74,15 +74,15 @@ function MainLayout() {
                 <Header className="site-layout-background" style={{padding: 0}}>
                     <Row>
                         <Col span={12} offset={2}>
-                            <SearchBox/>
+                            {/*<SearchBox/>*/}
                         </Col>
                         <Col span={12} offset={20}>
                             <Avatar shape="square" size="large" icon={<UserOutlined/>}/>
                         </Col>
                     </Row>
                 </Header>
-                <AppViews>
                 <Content style={{margin: '24px 16px 0'}}>
+
                     {/*<Breadcrumb style={{margin: '16px 0'}}>*/}
                     {/*    <Breadcrumb.Item>User</Breadcrumb.Item>*/}
                     {/*    <Breadcrumb.Item>Bill</Breadcrumb.Item>*/}
@@ -92,7 +92,6 @@ function MainLayout() {
                         <Table columns={tcolumns} dataSource={users} onChange={onChange}/>
                     </div>*/}
                 </Content>
-                </AppViews>
                 <Footer style={{textAlign: 'center'}}>Oleg ©2023 Created by Oleg Ushakov</Footer>
             </Layout>
         </Layout>
