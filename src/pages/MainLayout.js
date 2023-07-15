@@ -73,10 +73,13 @@ function MainLayout() {
             <Layout className="site-layout">
                 <Header className="site-layout-background" style={{padding: 0}}>
                     <Row>
-                        <Col span={12} offset={2}>
-                            {/*<SearchBox/>*/}
+                        <Col span={6} style={{textAlign: 'center'}}>
+                            <SearchBox/>
                         </Col>
-                        <Col span={12} offset={20}>
+                        <Col span={12}/>
+                        <Col span={2}/>
+                        <Col span={2}/>
+                        <Col span={2}>
                             <Avatar shape="square" size="large" icon={<UserOutlined/>}/>
                         </Col>
                     </Row>
@@ -98,4 +101,5 @@ function MainLayout() {
     );
 
 }
+
 export default MainLayout;

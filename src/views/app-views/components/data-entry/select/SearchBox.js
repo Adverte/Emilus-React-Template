@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Select } from 'antd';
 import jsonp from 'fetch-jsonp';
-import querystring from 'querystring';
+import querystring from 'querystring-es3';
 
 const { Option } = Select;
 
