@@ -9,7 +9,7 @@ const Dashboards = ({ match }) => {
       <Route path={`${match.url}/default`} element={lazy(() => import(`./default`))} />
       <Route path={`${match.url}/analytic`} element={lazy(() => import(`./analytic`))} />
       <Route path={`${match.url}/sales`} element={lazy(() => import(`./sales`))} />
-      <Navigate from={`${match.url}`} to={`${match.url}/default`} />
+      <Route from={`${match.url}`} render={() => <Navigate to={`${match.url}/default`} />}/>
     </Routes>
   </Suspense>
 )};

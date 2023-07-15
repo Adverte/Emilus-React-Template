@@ -5,7 +5,7 @@ import Loading from 'components/shared-components/Loading';
 const Maps = ({ match }) => (
   <Suspense fallback={<Loading cover="content"/>}>
     <Routes>
-      <Navigate exact from={`${match.url}`} to={`${match.url}/google-map`} />
+      <Route exact from={`${match.url}`} render={() => <Navigate to={`${match.url}/google-map`} />}/>
       <Route path={`${match.url}/google-map`} element={lazy(() => import(`./google-map`))} />
       <Route path={`${match.url}/simple-map`} element={lazy(() => import(`./simple-map`))} />
     </Routes>

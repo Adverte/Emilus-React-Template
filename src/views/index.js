@@ -17,12 +17,12 @@ function RouteInterceptor({ children, isAuthenticated, ...rest }) {
         isAuthenticated ? (
           children
         ) : (
-          <Navigate
-            to={{
+          <Route render={() => <Navigate
+              to={{
               pathname: AUTH_PREFIX_PATH,
               state: { from: location }
             }}
-          />
+          />}/>
         )
       }
     />
