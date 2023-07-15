@@ -37,14 +37,24 @@ const cardSource = {
   }
 };
 
-const WrapTabNode = useDrop("DND_NODE", cardTarget, connect => ({
-  connectDropTarget: connect.dropTarget()
-}))(
-    useDrag("DND_NODE", cardSource, (connect, monitor) => ({
-    connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging()
-  }))(TabNode)
-);
+const WrapTabNode = ({ children }) => {
+  const [{ isDragging }, connectDragSource] = useDrag(() => ({
+    item: { type: 'DND_NODE' },
+    collect: (monitor) => ({
+      isDragging: monitor.isDragging(),
+    }),
+  }));
+
+  const [, connectDropTarget] = useDrop(() => ({
+    accept: 'DND_NODE',
+    drop: (item) => {
+      // Handle drop logic
+    },
+    collect: (monitor) => ({}),
+  }));
+
+  return connectDropTarget(connectDragSource(children));
+};
 
 class DraggableTabs extends React.Component {
   state = {
