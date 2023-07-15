@@ -39,14 +39,23 @@ function UserTable() {
 
     const [users, setUsers] = React.useState([]);
     React.useEffect(() => {
+        let isMounted = true; // Variable to track if the component is still mounted
+
         fetch('https://reqres.in/api/users')
             .then(r => r.json())
             .then(json => {
-                setUsers(json.data);
-            }).catch(err => {
-            console.warn(err);
-            alert(err)
-        })
+                if (isMounted) {
+                    setUsers(json.data);
+                }
+            })
+            .catch(err => {
+                console.warn(err);
+                alert(err);
+            });
+        return () => {
+            // Cleanup function to cancel any ongoing fetch request
+            isMounted = false;
+        };
     })
 
     function onChange(pagination, filters, sorter, extra) {
