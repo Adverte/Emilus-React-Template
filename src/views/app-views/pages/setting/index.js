@@ -42,7 +42,7 @@ const SettingOption = ({ match, location }) => {
 const SettingContent = ({ match }) => {
 	return (
 		<Routes>
-			<Navigate exact from={`${match.url}`} to={`${match.url}/edit-profile`} />
+			<Route exact from={`${match.url}`} render={() => <Navigate to={`${match.url}/edit-profile`} />}/>
 			<Route path={`${match.url}/edit-profile`} element={<EditProfile/>} />
 			<Route path={`${match.url}/change-password`} element={<ChangePassword/>} />
 			<Route path={`${match.url}/billing`} element={<Billing/>} />

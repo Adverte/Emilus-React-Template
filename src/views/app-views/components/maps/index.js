@@ -6,7 +6,7 @@ import SimpleMap from './simple-map';
 const MapComponents = ({ match }) => (
   <div>
     <Routes>
-      <Navigate exact from={`${match.url}`} to={`${match.url}/google-map`} />
+      <Route exact from={`${match.url}`} render={() => <Navigate to={`${match.url}/google-map`} />}/>
       <Route path={`${match.url}/google-map`} element={<GoogleMap/>} />
       <Route path={`${match.url}/simple-map`} element={<SimpleMap/>} />
     </Routes>

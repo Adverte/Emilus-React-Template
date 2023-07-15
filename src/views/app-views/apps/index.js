@@ -10,7 +10,7 @@ const Apps = ({ match }) => (
       <Route path={`${match.url}/calendar`} element={lazy(() => import(`./calendar`))} />
       <Route path={`${match.url}/project`} element={lazy(() => import(`./project`))} />
       <Route path={`${match.url}/ecommerce`} element={lazy(() => import(`./e-commerce`))} />
-      <Navigate from={`${match.url}`} to={`${match.url}/mail`} />
+      <Route from={`${match.url}`} render={() => <Navigate to={`${match.url}/mail`} />}/>
     </Routes>
   </Suspense>
 );

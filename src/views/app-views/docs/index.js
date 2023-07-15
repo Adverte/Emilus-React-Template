@@ -203,7 +203,7 @@ const Docs = props => {
 										/>
 									))
 								))}
-								<Navigate from={`${match.url}`} to={`${match.url}/${prefix}introduction`} />
+								<Route from={`${match.url}`} render={() => <Navigate to={`${match.url}/${prefix}introduction`} />}/>
 							</Routes>
 						</Suspense>
 					</div>

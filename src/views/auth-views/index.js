@@ -15,7 +15,7 @@ export const AppViews = () => {
         <Route path={`${AUTH_PREFIX_PATH}/forgot-password`} element={lazy(() => import(`./authentication/forgot-password`))} />
         <Route path={`${AUTH_PREFIX_PATH}/error-1`} element={lazy(() => import(`./errors/error-page-1`))} />
         <Route path={`${AUTH_PREFIX_PATH}/error-2`} element={lazy(() => import(`./errors/error-page-2`))} />
-        <Navigate from={`${AUTH_PREFIX_PATH}`} to={`${AUTH_PREFIX_PATH}/login`} />
+        <Route from={`${AUTH_PREFIX_PATH}`} render={() => <Navigate to={`${AUTH_PREFIX_PATH}/login`} />}/>
       </Routes>
     </Suspense>
   )

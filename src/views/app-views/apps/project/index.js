@@ -6,7 +6,7 @@ import Scrumboard from './scrumboard';
 const Project = ({ match }) => {
 	return (
 		<Routes>
-			<Navigate exact from={`${match.url}`} to={`${match.url}/list`} />
+			<Route exact from={`${match.url}`} render={() => <Navigate to={`${match.url}/list`} />}/>
 			<Route path={`${match.url}/list`} element={<ProjectList/>} />
 			<Route path={`${match.url}/scrumboard`} element={<Scrumboard/>} />
 		</Routes>

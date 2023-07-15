@@ -21,7 +21,7 @@ import UploadComponent from './upload';
 const DataEntryComponents = ({ match }) => (
   <div>
     <Routes>
-      <Navigate exact from={`${match.url}`} to={`${match.url}/auto-complete`} />
+      <Route exact from={`${match.url}`} render={() => <Navigate to={`${match.url}/auto-complete`} />}/>
       <Route path={`${match.url}/auto-complete`} element={<AutoCompleteComponent/>} />
       <Route path={`${match.url}/cascader`} element={<CascaderComponent/>} />
       <Route path={`${match.url}/checkbox`} element={<CheckboxComponent/>} />

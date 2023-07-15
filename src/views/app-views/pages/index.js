@@ -5,7 +5,7 @@ import Loading from 'components/shared-components/Loading';
 const Pages = ({ match }) => (
   <Suspense fallback={<Loading cover="content"/>}>
     <Routes>
-      <Navigate exact from={`${match.url}`} to={`${match.url}/profile`} />
+      <Route exact from={`${match.url}`} render={() => <Navigate to={`${match.url}/profile`} />}/>
       <Route path={`${match.url}/profile`} element={lazy(() => import(`./profile`))} />
       <Route path={`${match.url}/invoice`} element={lazy(() => import(`./invoice`))} />
       <Route path={`${match.url}/pricing`} element={lazy(() => import(`./pricing`))} />

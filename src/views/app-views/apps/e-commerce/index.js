@@ -9,7 +9,7 @@ const Ecommerce = props => {
   const { match } = props
 	return (
 		<Routes>
-			<Navigate exact from={`${match.url}`} to={`${match.url}/product-list`} />
+			<Route exact from={`${match.url}`} render={() => <Navigate to={`${match.url}/product-list`} />}/>
 			<Route path={`${match.url}/add-product`} element={<AddProduct/>} />
 			<Route path={`${match.url}/edit-product/:id`} element={<EditProduct/>} />
 			<Route path={`${match.url}/product-list`} element={<ProductList/>} />

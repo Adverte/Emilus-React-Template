@@ -6,7 +6,7 @@ import ChartJs from './chartjs';
 const ChartsComponents = ({ match }) => (
   <div>
     <Routes>
-      <Navigate exact from={`${match.url}`} to={`${match.url}/apex-charts`} />
+      <Route exact from={`${match.url}`} render={() => <Navigate to={`${match.url}/apex-charts`} />}/>
       <Route path={`${match.url}/apex-charts`} element={<Apex/>} />
       <Route path={`${match.url}/chartjs`} element={<ChartJs/>} />
     </Routes>

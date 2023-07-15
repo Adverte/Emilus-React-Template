@@ -7,7 +7,7 @@ import IconComponent from './icon'
 const GeneralComponents = ({ match }) => (
   <div>
     <Routes>
-      <Navigate exact from={`${match.url}`} to={`${match.url}/button`} />
+      <Route exact from={`${match.url}`} render={() => <Navigate to={`${match.url}/button`} />}/>
       <Route path={`${match.url}/button`} element={<ButtonComponent/>} />
       <Route path={`${match.url}/typography`} element={<TypographyComponent/>} />
       <Route path={`${match.url}/icon`} element={<IconComponent/>} />

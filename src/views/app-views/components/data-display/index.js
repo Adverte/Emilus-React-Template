@@ -22,7 +22,7 @@ import TreeComponent from './tree';
 const DataDisplayComponents = ({ match }) => (
   <div>
     <Routes>
-      <Navigate exact from={`${match.url}`} to={`${match.url}/avatar`} />
+      <Route exact from={`${match.url}`} render={() => <Navigate to={`${match.url}/avatar`} />}/>
       <Route path={`${match.url}/avatar`} element={<AvatarComponent/>} />
       <Route path={`${match.url}/badge`} element={<BadgeComponent/>} />
       <Route path={`${match.url}/calendar`} element={<CalendarComponent/>} />

@@ -39,7 +39,7 @@ export const Views = (props) => {
       <ConfigProvider locale={currentAppLocale.antd}>
         <Routes>
           <Route exact path="/">
-            <Navigate to={APP_PREFIX_PATH} />
+            <Route render={() => <Navigate to={APP_PREFIX_PATH} />}/>
           </Route>
           <Route path={AUTH_PREFIX_PATH}>
             <AuthLayout />

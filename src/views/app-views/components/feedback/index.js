@@ -14,7 +14,7 @@ import SpinComponent from './spin';
 const FeedBackComponents = ({ match }) => (
   <div>
     <Routes>
-      <Navigate exact from={`${match.url}`} to={`${match.url}/alert`} />
+      <Route exact from={`${match.url}`} render={() => <Navigate to={`${match.url}/alert`} />}/>
       <Route path={`${match.url}/alert`} element={<AlertComponent/>} />
 			<Route path={`${match.url}/drawer`} element={<DrawerComponent/>} />
 			<Route path={`${match.url}/message`} element={<MessageComponent/>} />
