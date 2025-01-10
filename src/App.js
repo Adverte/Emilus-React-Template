@@ -18,6 +18,7 @@ function App() {
                         <Route path='/*' element={<MainLayout/>}>
                             <Route index element={<HomePage/>}/>
                             <Route path='table' element={<TickerTable/>}/>
+                            {/*<Route path='table' element={<UserTable/>}/>*/}
                             <Route path='*' element={<NotFoundPage/>}/>
                         </Route>
                     </Routes>

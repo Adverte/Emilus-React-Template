@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
-import { Tooltip, Avatar } from 'antd';
-import { Comment } from '@ant-design/compatible';
+import { Tooltip, Avatar, Comment } from 'antd';
 import moment from 'moment';
 import { DislikeOutlined, LikeOutlined, DislikeFilled, LikeFilled } from '@ant-design/icons';
 

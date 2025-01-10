@@ -23,7 +23,7 @@ function UserTable() {
             title: 'Last name',
             dataIndex: 'last_name',
             sorter: {
-                compare: (a, b) => a.last_name - b.last_name,
+                compare: (a, b) => a.legalShort - b.legalShort,
                 multiple: 3,
             },
         },
@@ -42,6 +42,7 @@ function UserTable() {
         let isMounted = true; // Variable to track if the component is still mounted
 
         fetch('https://reqres.in/api/users')
+        // fetch('http://localhost:8080/moex/getlegalstat')
             .then(r => r.json())
             .then(json => {
                 if (isMounted) {

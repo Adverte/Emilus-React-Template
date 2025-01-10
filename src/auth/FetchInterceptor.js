@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { API_BASE_URL } from 'configs/AppConfig'
 import history from '../history'
-import { AUTH_TOKEN } from 'redux/constants/Auth'
+import { AUTH_TOKEN } from '../redux/constants/Auth'
 import { notification } from 'antd';
 
 const service = axios.create({

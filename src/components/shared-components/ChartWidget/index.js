@@ -7,7 +7,7 @@ import {
 	apexBarChartDefaultOption,
 	apexAreaChartDefaultOption
 } from 'constants/ChartConstant';
-import ReactResizeDetector from 'react-resize-detector';
+import ResizeDetector from 'react-resize-detector';
 
 const titleStyle = {
 	position: 'absolute',
@@ -70,11 +70,11 @@ const ChartWidget = ({title, series, width, height, xAxis, customOptions, card, 
 	}
 
 	const renderChart = (
-		<ReactResizeDetector onResize={onResize()}>
+		<ResizeDetector onResize={onResize()}>
 			<div className="chartRef" ref={chartRef}>
 				<ApexChart options={options} type={type} series={series} width={width} height={height}/>
 			</div>
-		</ReactResizeDetector>
+		</ResizeDetector>
 	)
 
 	return (

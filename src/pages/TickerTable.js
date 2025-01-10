@@ -11,35 +11,36 @@ function TickerTable() {
         },
         {
             key: '2',
-            title: 'LegalLong',
-            dataIndex: 'legalLong',
+            title: 'Юрики шорт, шт',
+            dataIndex: 'legalShortQuantity',
             sorter: {
-                compare: (a, b) => a.legalLong - b.legalLong,
+                compare: (a, b) => a.legalShort - b.legalShort,
                 multiple: 3,
             },
+            render:
+                (text, record) => (<div>{record.name}</div>),
         },
         {
             key: '3',
-            title: 'Legal Short',
+            title: 'Юрики long, шт',
             dataIndex: 'legalLongQuantity',
-            sorter: {
-                compare: (a, b) => a.legalShort - b.legalShort,
-                multiple: 3,
-            },
-        },
-        {
+            // sorter: {
+            //     compare: (a, b) => a.legalLongQuantity - b.legalLongQuantity,
+            //     multiple: 3,
+            // },
+        },{
             key: '4',
-            title: 'Legal Short',
-            dataIndex: 'legalLongQuantityPercent',
+            title: 'Юрики лонг, %',
+            dataIndex: 'longPercent',
             sorter: {
-                compare: (a, b) => a.legalShort - b.legalShort,
+                compare: (a, b) => a.longPercent - b.longPercent,
                 multiple: 3,
             },
         },
         {
             key: '5',
             title: 'Derivative Update Time',
-            dataIndex: 'date',
+            dataIndex: 'updateDate',
             // sorter: {
             //     compare: (a, b) => a.derivative_update_time - b.derivative_update_time,
             //     multiple: 3,
